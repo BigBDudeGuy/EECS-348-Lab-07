@@ -1,0 +1,60 @@
+<html>
+<head>
+    <h1>EECS 348 Lab 7 Practice 2</h1>
+    <style>
+        #bordered-text {
+            padding: 10px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <p><span id="pre-made-sentence">This is a pre-made sentence.</span></p>
+
+    <label for="border-red">Border Red (0 - 255):</label>
+    <input type="number" id="border-red" min="0" max="255" value="0"><br>
+
+    <label for="border-green">Border Green (0 - 255):</label>
+    <input type="number" id="border-green" min="0" max="255" value="0"><br>
+
+    <label for="border-blue">Border Blue (0 - 255):</label>
+    <input type="number" id="border-blue" min="0" max="255" value="0"><br>
+
+    <label for="border-width">Border Width:</label>
+    <input type="number" id="border-width" min="0" value="2"><br>
+
+    <label for="background-red">Background Red (0 - 255):</label>
+    <input type="number" id="background-red" min="0" max="255" value="255"><br>
+
+    <label for="background-green">Background Green (0 - 255):</label>
+    <input type="number" id="background-green" min="0" max="255" value="255"><br>
+
+    <label for="background-blue">Background Blue (0 - 255):</label>
+    <input type="number" id="background-blue" min="0" max="255" value="255"><br>
+
+    <button onclick="applyStyles()">Apply Changes</button>
+
+    <div id="bordered-text"></div>
+
+    <script>
+        function applyStyles() {
+            var preMadeSentence = document.getElementById('pre-made-sentence').textContent;
+            var borderRed = document.getElementById('border-red').value;
+            var borderGreen = document.getElementById('border-green').value;
+            var borderBlue = document.getElementById('border-blue').value;
+            var borderWidth = document.getElementById('border-width').value;
+            var backgroundRed = document.getElementById('background-red').value;
+            var backgroundGreen = document.getElementById('background-green').value;
+            var backgroundBlue = document.getElementById('background-blue').value;
+            var borderedText = document.getElementById('bordered-text');
+
+            borderedText.textContent = preMadeSentence;
+            borderedText.style.backgroundColor = 'rgb(' + backgroundRed + ',' + backgroundGreen + ',' + backgroundBlue + ')';
+            borderedText.style.borderColor = 'rgb(' + borderRed + ',' + borderGreen + ',' + borderBlue + ')';
+            borderedText.style.borderWidth = borderWidth + 'px';
+        }
+    </script>
+</body>
+</html>
+

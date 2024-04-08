@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number"><br>
+    <button onclick="showMultiplicationTable()">Submit</button><br>
+    <div id="multiplicationTable"></div>
+
+    <script>
+        function showMultiplicationTable() {
+            var number = parseInt(document.getElementById("number").value);
+            var multiplicationTable = document.getElementById("multiplicationTable");
+
+            // Clear previous table
+            multiplicationTable.innerHTML = "";
+
+            // Generate multiplication table
+            var tableHTML = "<h2>Multiplication Table for " + number + ":</h2><table>";
+
+            // Header row
+            tableHTML += "<tr><th></th>";
+            for (var i = 1; i <= number; i++) {
+                tableHTML += "<th>" + i + "</th>";
+            }
+            tableHTML += "</tr>";
+
+            // Data rows
+            for (var i = 1; i <= number; i++) {
+                tableHTML += "<tr><th>" + i + "</th>";
+                for (var j = 1; j <= number; j++) {
+                    if (i === 1 && j === 1) {
+                        tableHTML += "<td>1</td>";
+                    } else if (i === 1) {
+                        tableHTML += "<td>" + (j) + "</td>";
+                    } else if (j === 1) {
+                        tableHTML += "<td>" + (i) + "</td>";
+                    } else {
+                        tableHTML += "<td>" + (i * j) + "</td>";
+                    }
+                }
+                tableHTML += "</tr>";
+            }
+            tableHTML += "</table>";
+
+            // Display multiplication table
+            multiplicationTable.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>

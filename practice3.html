@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>EECS 348 Lab 7 Practice 3</h1>
+    </head>
+    <body>
+        First Password:
+        <input type="text" id = "password_1" value><br>
+        Second Password:
+        <input type="text" id = "password_2" value><br>
+        <script type = "text/javascript" src="functions.js">
+        </script>
+        <button onclick="check()">Validate Your Passwords</button> <br>
+    </body>
+
+
+    <script>
+        function check() {
+            console.log("Password fun");
+            var password_1 = document.getElementById("password_1").value;
+            var password_2 = document.getElementById("password_2").value;
+
+            if (password_1.length == 0) {
+                alert("please enter a password")
+            } else if (password_1.length < 8) {
+                alert("First password is less than 8 characters")
+            } else if (password_2.length < 8) {
+                alert("Second password is less than 8 characters")
+            } else if (password_1 != password_2) {
+                alert("Two passwords aren't the same")
+            } else {
+                alert("Passwords are the same!")
+            }
+        }
+        
+    </script>
+</html>
